@@ -6,6 +6,10 @@ function Intro() {
   const { intro } = portfolioData;
   const { firstName, lastName, title, welcomeText, description } = intro[0];
 
+  const onclick = () => {
+    const about = document.getElementById("Contact").scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div
       id="Home"
@@ -26,8 +30,8 @@ function Intro() {
         {portfolioData.intro[0].description || ""}
       </p>
 
-      <a href="#Contact">
-        <button className="border-2 border-tertiary text-tertiary px-10 py-3 rounded sm:px-4 sm:py-2">
+      <a >
+        <button type="button" onClick={onclick} className="border-2 border-tertiary text-tertiary px-10 py-3 rounded sm:px-4 sm:py-2">
           Get Started
         </button>
       </a>

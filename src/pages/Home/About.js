@@ -22,27 +22,24 @@ function About() {
         </div>
 
         <div className="flex flex-col gap-5 sm:w-full">
-          <p className="text-white text-lg">
-            {description1 || ""}
-          </p>
-          <p className="text-white text-lg">
-            {description2 || ""}
-          </p>
+          <p className="text-white text-lg">{description1 || ""}</p>
+          <p className="text-white text-lg">{description2 || ""}</p>
         </div>
       </div>
 
-      <div className="py-5">
-        <h1 className="text-white text-xl">        
-        Here are a few technologies I have extensive hands-on experience with.
+      <div className="py-5 ">
+        <h1 className="text-white text-xl ">
+          Here are a few technologies I have extensive hands-on experience with.
         </h1>
 
         <div className="flex  flex-wrap gap-10 mt-5">
-          {skills.map((  skill, index) => (
-            <div className="border border-tertiary py-3 px-10">
+          {skills.map((skill, index) => (
+            <div className="border border-tertiary py-3 px-10 rounded-md sm:px-8 ">
               <h1 className="text-white">{skill}</h1>
             </div>
           ))}
         </div>
+
       </div>
     </div>
   );
