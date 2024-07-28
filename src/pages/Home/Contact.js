@@ -19,20 +19,52 @@ function Contact() {
   const dispatch = useDispatch();
 
   const BASE_URL = `${process.env.REACT_APP_BASE_URL}`;
+  const [messageApi, contextHolder] = message.useMessage();
 
-  const submit = async () => {
+  const submit = async (event) => {
+    event.preventDefault();
     try {
+      await form.validateFields();
+
       dispatch(showLoading());
-      const response = await axios.post(BASE_URL+"api/portfolio/contact-us", contactUs);
+      const response = await axios.post(
+        BASE_URL + "api/portfolio/contact-us",
+        contactUs
+      );
       dispatch(HideLoading());
       if (response.data.success) {
-        message.success("Thanks for getting in touch!");
+        messageApi.open({
+          type: "success",
+          content: "Thanks for getting in touch!",
+          className: "custom-class",
+          style: {
+            marginTop: "12vh",
+          },
+        });
         form.resetFields(); // Reset the form after successful submission
       } else {
         message.error(response.data.message);
       }
     } catch (error) {
-      message.error(error.message);
+      if (error.name === "ValidationError") {
+        messageApi.open({
+          type: "error",
+          content: "Please check the form fields for errors.",
+          className: "custom-class",
+          style: {
+            marginTop: "12vh",
+          },
+        });
+      } else {
+        messageApi.open({
+          type: "error",
+          content: "Please check the form fields for errors.",
+          className: "custom-class",
+          style: {
+            marginTop: "12vh",
+          },
+        });
+      }
       dispatch(HideLoading());
     }
   };
@@ -93,15 +125,16 @@ function Contact() {
                 }
               />
             </Form.Item>
+            {contextHolder}
 
             <button
+              type="button"
               className="bg-primary border border-tertiary text-white  py-2 w-full"
               onClick={submit}
             >
               Submit
             </button>
-          </Form>       
-             
+          </Form>
         </div>
         {/* <div className="flex flex-col gap-1">           */}
         {/* <p className="text-white">{"{"}</p>
