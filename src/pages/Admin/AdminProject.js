@@ -12,6 +12,7 @@ function AdminProject() {
   const [showAddEditModal, setShowAddEditModal] = useState(false);
   const [selectedItemForEdit, setSelectedItemForEdit] = useState(null);
   const [type, setType] = useState("add");
+  const BASE_URL = `${process.env.REACT_APP_BASE_URL}`;
 
   const onFinish = async (values) => {
     debugger;
@@ -26,12 +27,12 @@ function AdminProject() {
       let response;
 
       if (selectedItemForEdit) {
-        response = await axios.post("/api/portfolio/update-project", {
+        response = await axios.post(BASE_URL+"api/portfolio/update-project", {
           ...values,
           _id: selectedItemForEdit._id,
         });
       } else {
-        response = await axios.post("/api/portfolio/add-project", {
+        response = await axios.post(BASE_URL+"api/portfolio/add-project", {
           ...values,
         });
       }
@@ -56,7 +57,7 @@ function AdminProject() {
   const onDelete = async (id) => {
     try {
       dispatch(showLoading());
-      const response = await axios.post("/api/portfolio/delete-project", {
+      const response = await axios.post(BASE_URL+"api/portfolio/delete-project", {
         _id: id,
       });
       dispatch(HideLoading());

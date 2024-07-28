@@ -12,7 +12,7 @@ function AdminExperience() {
   const [showAddEditModal, setShowAddEditModal] = useState(false);
   const [selectedItemForEdit, setSelectedItemForEdit] = useState(null);
   const [type, setType] = useState("add");
-
+  const BASE_URL = `${process.env.REACT_APP_BASE_URL}`;
   
 
 
@@ -26,12 +26,12 @@ function AdminExperience() {
       let response;
 
       if (selectedItemForEdit) {
-        response = await axios.post("/api/portfolio/update-experience", {
+        response = await axios.post(BASE_URL+"api/portfolio/update-experience", {
           ...values,
           _id: selectedItemForEdit._id,
         });
       } else {
-        response = await axios.post("/api/portfolio/add-experience", {
+        response = await axios.post(BASE_URL+"api/portfolio/add-experience", {
           ...values,
         });
       }
@@ -56,7 +56,7 @@ function AdminExperience() {
   const onDelete = async (id) => {
     try {
       dispatch(showLoading());
-      const response = await axios.post("/api/portfolio/delete-experience", {
+      const response = await axios.post(BASE_URL+"api/portfolio/delete-experience", {
         _id: id,
       });
       dispatch(HideLoading());

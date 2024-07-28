@@ -13,6 +13,8 @@ function AdminCourses() {
   const [selectedItemForEdit, setSelectedItemForEdit] = useState(null);
   const [type, setType] = useState("add");
 
+  const BASE_URL = `${process.env.REACT_APP_BASE_URL}`;
+
   
   const onFinish = async (values) => {
     debugger;
@@ -24,12 +26,12 @@ function AdminCourses() {
       let response;
 
       if (selectedItemForEdit) {
-        response = await axios.post("/api/portfolio/update-course", {
+        response = await axios.post(BASE_URL+"api/portfolio/update-course", {
           ...values,
           _id: selectedItemForEdit._id,
         });
       } else {
-        response = await axios.post("/api/portfolio/add-course", {
+        response = await axios.post(BASE_URL+"api/portfolio/add-course", {
           ...values,
         });
       }
@@ -54,7 +56,7 @@ function AdminCourses() {
   const onDelete = async (id) => {
     try {
       dispatch(showLoading());
-      const response = await axios.post("/api/portfolio/delete-course", {
+      const response = await axios.post(BASE_URL+"api/portfolio/delete-course", {
         _id: id,
       });
       dispatch(HideLoading());

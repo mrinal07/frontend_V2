@@ -16,11 +16,13 @@ function App() {
   const { loading, portfolioData , reloadData} = useSelector((state) => state.root);
   const dispatch = useDispatch();
 
+  const BASE_URL = `${process.env.REACT_APP_BASE_URL}`;
+
   const getPortfolioData = async () => {
     try {
       dispatch(showLoading(true));
 
-      const response = await axios.get("/api/portfolio/get-portfolio-data");
+      const response = await axios.get(BASE_URL+"api/portfolio/get-portfolio-data");
 
       dispatch(setPortfolioData(response.data));
       dispatch(ReloadData(false));

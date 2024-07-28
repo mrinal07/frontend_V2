@@ -6,9 +6,6 @@ function About() {
   const { loading, portfolioData } = useSelector((state) => state.root);
   const { about } = portfolioData;
   const { skills, lottieURL, description1, description2 } = about[0];
-
-  // static data
-  // const skills = ["Javascript", "React", "MongoDB", "Java", "C#", "MSSQL"];
   return (
     <div id="About" className="mt-20">
       <SectionTitle title="About"></SectionTitle>

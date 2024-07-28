@@ -13,6 +13,8 @@ function AdminContact() {
 
   const dispatch = useDispatch();
 
+  const BASE_URL = `${process.env.REACT_APP_BASE_URL}`;
+
   const onFinish = async (values) => {
     // setId(values._id);
     console.log("Received values of form:", values);
@@ -20,7 +22,7 @@ function AdminContact() {
     try {
       debugger;
       dispatch(showLoading());
-      const response = await axios.post("/api/portfolio/update-contact", {
+      const response = await axios.post(BASE_URL+"api/portfolio/update-contact", {
         ...values,
         _id: portfolioData.contact._id,
       });

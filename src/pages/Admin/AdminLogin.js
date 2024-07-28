@@ -10,11 +10,13 @@ function AdminLogin() {
     password: "",
   });
 
+  const BASE_URL = `${process.env.REACT_APP_BASE_URL}`;
+
   const dispatch = useDispatch();
   const login = async () => {
     try {
       dispatch(showLoading());
-      const response = await axios.post("/api/portfolio/admin-login", user);
+      const response = await axios.post(BASE_URL+"api/portfolio/admin-login", user);
       dispatch(HideLoading());
       if (response.data.success) {
         message.success(response.data.message);

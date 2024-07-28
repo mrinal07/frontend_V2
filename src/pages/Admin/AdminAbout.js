@@ -14,6 +14,8 @@ function AdminAbout() {
 
   const dispatch = useDispatch();
 
+  const BASE_URL = `${process.env.REACT_APP_BASE_URL}`;
+
   const onFinish = async (values) => {
 
     // converting string to array
@@ -25,7 +27,7 @@ function AdminAbout() {
     console.log("Received values of form:", values);
     try {
       dispatch(showLoading());
-      const response = await axios.post("/api/portfolio/update-about", {
+      const response = await axios.post(BASE_URL+"api/portfolio/update-about", {
         ...values,
         _id: portfolioData.about[0]._id,
       });

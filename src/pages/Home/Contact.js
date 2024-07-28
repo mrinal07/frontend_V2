@@ -18,10 +18,12 @@ function Contact() {
 
   const dispatch = useDispatch();
 
+  const BASE_URL = `${process.env.REACT_APP_BASE_URL}`;
+
   const submit = async () => {
     try {
       dispatch(showLoading());
-      const response = await axios.post("/api/portfolio/contact-us", contactUs);
+      const response = await axios.post(BASE_URL+"api/portfolio/contact-us", contactUs);
       dispatch(HideLoading());
       if (response.data.success) {
         message.success("Thanks for getting in touch!");

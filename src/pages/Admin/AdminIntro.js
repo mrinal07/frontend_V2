@@ -13,13 +13,14 @@ function AdminIntro() {
   const initialValues = portfolioData.intro[0];
 
   const dispatch = useDispatch();
+  const BASE_URL = `${process.env.REACT_APP_BASE_URL}`;
 
   const onFinish = async (values) => {
     
     console.log("Received values of form:", values);
     try {
       dispatch(showLoading());
-      const response = await axios.post("/api/portfolio/update-intro", {
+      const response = await axios.post(BASE_URL+"api/portfolio/update-intro", {
         ...values,
         _id: portfolioData.intro[0]._id,
       });

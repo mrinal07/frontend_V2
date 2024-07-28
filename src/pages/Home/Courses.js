@@ -7,28 +7,6 @@ function Courses() {
   const { courses } = portfolioData;
   const {  title, link, description,image } = courses;
 
-  // static data
-  // const Courses = [
-  //   {
-  //     title: "Project 1",
-  //     image:"",
-  //     link: "/",
-  //     description: "", 
-  //   },
-  //   {
-  //     title: "Project 2",
-  //     image:"",
-  //     link: "/",
-  //     description: "",
-  //   },
-  //   {
-  //     title: "Project 3",
-  //     image:"",
-  //     link: "/",
-  //     description: "",
-  //   },
-  // ];
-
   const [selectedItemIndex, setSelectedItemIndex] = useState(0);
 
   return (
