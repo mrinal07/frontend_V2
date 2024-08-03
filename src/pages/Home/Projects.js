@@ -14,9 +14,11 @@ function Projects() {
     <div id="Projects" className="mt-20">
       <SectionTitle title="Projects" />
       <div className="flex py-10 gap-10 sm:flex-col">
-        <div className="flex flex-col gap-10 border-l-2 border-[#135e4c82] w-1/4 sm:flex-row sm:overflow-x-scroll sm:w-full
+        <div
+          className="flex flex-col gap-10 border-l-2 border-[#135e4c82] w-1/4 sm:flex-row sm:overflow-x-scroll sm:w-full
         sm:gap-1
-        ">
+        "
+        >
           {projects.map((data, index) => (
             <div
               onClick={() => {
@@ -39,7 +41,7 @@ function Projects() {
           ))}
         </div>
 
-        <div className="flex flex-row static w-1/2 sm:w-full">          
+        <div className="flex flex-row static w-1/2 sm:w-full">
           <div className="flex-col gap-5 ">
             <h1 className="text-secondary text-2xl ">
               {projects[selectedItemIndex].title} &nbsp;{" "}
@@ -47,15 +49,23 @@ function Projects() {
                 href={projects[selectedItemIndex].link}
                 target="_blank"
                 rel="noreferrer"
-                className="ml-20"
+                className="ml-5"
               >
                 <i class="ri-link text-3xl text-white"></i>
               </a>
             </h1>
-            <h1 className="text-tertiary text-xl ">
+            <h1 className="text-white text-xl ">
               Tech Stack: {"[ "}
-              {projects[selectedItemIndex].technologies}
+              {projects[selectedItemIndex].technologies.map((item, i) => (
+                <span key={i} className="text-tertiary">
+                  {item}
+                  {i !== projects[selectedItemIndex].technologies.length - 1
+                    ? ", "
+                    : ""}
+                </span>
+              ))}
               {" ]"}
+             
             </h1>
             <p className="text-white py-5">
               {projects[selectedItemIndex].description}

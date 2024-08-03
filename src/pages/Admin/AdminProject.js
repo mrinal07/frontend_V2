@@ -172,7 +172,7 @@ function AdminProject() {
             <Form.Item name="link" label="Link">
               <input className="" placeholder="Link" />
             </Form.Item>
-            <Form.Item name="technologies" label="Technologies">
+            <Form.Item name="technologies" label="Technologies (Add comma after each technology)">
               <input className="" placeholder="Technologies" />
             </Form.Item>
             <Form.Item name="image" label="Image URL">

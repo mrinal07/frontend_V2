@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import AdminProject from "./AdminProject";
 import AdminCourses from "./AdminCourses";
 import AdminContact from "./AdminContact";
+import AdminResume from "./AdminResume";
 
 function Admin() {
   const { portfolioData } = useSelector((state) => state.root);
@@ -60,6 +61,9 @@ function Admin() {
             </TabPane>
             <TabPane tab="Contact" key="6">
               <AdminContact />
+            </TabPane>
+            <TabPane tab="Resume" key="7">
+              <AdminResume />
             </TabPane>
           </Tabs>
         </div>

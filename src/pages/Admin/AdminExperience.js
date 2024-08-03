@@ -9,21 +9,29 @@ function AdminExperience() {
   const { portfolioData } = useSelector((state) => state.root);
   const dispatch = useDispatch();
   const { experiences } = portfolioData;
+  
   const [showAddEditModal, setShowAddEditModal] = useState(false);
   const [selectedItemForEdit, setSelectedItemForEdit] = useState(null);
   const [type, setType] = useState("add");
   const BASE_URL = `${process.env.REACT_APP_BASE_URL}`;
-  
-
 
   const onFinish = async (values) => {
     debugger;
 
-    console.log(values);
+    // console.log(values);
 
     try {
       dispatch(showLoading());
       let response;
+
+      // console.log(values.description);      
+      // values.description = values.description.split("\n");
+      // values.description.pop();
+
+      // console.log(values.description);
+
+      const stringToArr = values.skills.split(",");
+      values.skills = stringToArr;
 
       if (selectedItemForEdit) {
         response = await axios.post(BASE_URL+"api/portfolio/update-experience", {
@@ -103,6 +111,9 @@ function AdminExperience() {
               <span className="font-bold">Role:</span> {experience.title}
             </h1>
             <h1 className="mt-5">
+              <span className="font-bold">Skills:</span> {experience.skills.join(",")}
+            </h1>
+            <h1 className="mt-5">
               <span className="font-bold">Description:</span>{" "}
               {experience.description}
             </h1>
@@ -143,7 +154,12 @@ function AdminExperience() {
           <Form
             layout="vertical"
             onFinish={onFinish}
-            initialValues={selectedItemForEdit}
+            initialValues={
+              {
+              selectedItemForEdit,
+              skills: selectedItemForEdit?.skills?.join(","),
+              }
+            }
           >
             <Form.Item name="period" label="Period">
               <input className="" placeholder="Period" />
@@ -154,8 +170,11 @@ function AdminExperience() {
             <Form.Item name="title" label="Title">
               <input className="" placeholder="Title" />
             </Form.Item>
+            <Form.Item name="skills" label="Skills (Add comma after each skill)">              
+              <input className="" placeholder="Skills" />
+            </Form.Item>
             <Form.Item name="description" label="Description">
-              <input className="" placeholder="Description" />
+              <textarea className="" placeholder="Description" />
             </Form.Item>
             <div className="flex justify-end">
               <button

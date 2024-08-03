@@ -8,6 +8,38 @@ import {
   ContactsOutlined,
 } from "@ant-design/icons";
 import { Menu } from "antd";
+import axios from "axios";
+
+
+const BASE_URL = `${process.env.REACT_APP_BASE_URL}`;
+
+const handleFileDownload = async () => {
+  try {
+    const res = await axios({
+      // File name is written hard coded
+      // which means the we have to upload same name file on the server
+      url: `${BASE_URL}api/portfolio/download/Mrinal_Resume.pdf`,
+      method: 'GET',
+      responseType: 'blob', // Important for handling binary data
+    });
+
+    // Create a new Blob object using the response data of the file
+    const blob = new Blob([res.data], { type: res.data.type });
+    // Create a link element
+    const link = document.createElement('a');
+    // Set the download attribute with a filename
+    link.href = window.URL.createObjectURL(blob);
+    link.download = "Mrinal_Resume.pdf";
+    // Append to the document
+    document.body.appendChild(link);
+    // Start download
+    link.click();
+    // Cleanup
+    document.body.removeChild(link);
+  } catch (error) {
+    console.error('Download error:', error);
+  }
+};
 
 const items = [
   {
@@ -17,9 +49,7 @@ const items = [
   },
   {
     label: (
-      <a href="./Mrinal_Resume.pdf" download="Mrinal_Resume.pdf">
-        Resume
-      </a>
+      <a onClick={handleFileDownload}>Resume</a>
     ),
     key: "Resume",
     icon: <BookOutlined />,
@@ -43,48 +73,7 @@ const items = [
     label: "Contact",
     key: "Contact",
     icon: <ContactsOutlined />,
-  },
-  //   {
-  //     label: "Navigation Two",
-  //     key: "app",
-  //     icon: <AppstoreOutlined />,
-  //     disabled: true,
-  //   },
-  //   {
-  //     label: "Navigation Three - Submenu",
-  //     key: "SubMenu",
-  //     icon: <SettingOutlined />,
-  //     children: [
-  //       {
-  //         type: "group",
-  //         label: "Item 1",
-  //         children: [
-  //           {
-  //             label: "Option 1",
-  //             key: "setting:1",
-  //           },
-  //           {
-  //             label: "Option 2",
-  //             key: "setting:2",
-  //           },
-  //         ],
-  //       },
-  //       {
-  //         type: "group",
-  //         label: "Item 2",
-  //         children: [
-  //           {
-  //             label: "Option 3",
-  //             key: "setting:3",
-  //           },
-  //           {
-  //             label: "Option 4",
-  //             key: "setting:4",
-  //           },
-  //         ],
-  //       },
-  //     ],
-  //   },
+  },  
 ];
 
 function Header() {
@@ -113,17 +102,7 @@ function Header() {
       />
     </div>
   );
-  // return (
-  //     <div>
-
-  //     </div>
-  //     // <div className="p-5 bg-primary flex justify-between">
-  //     //     <h1 className="text-secondary text-4xl font-semibold">M</h1>
-  //     //     <h1 className="text-white text-4xl font-semibold">N</h1>
-  //     //     <h1 className="text-tertiary text-4xl font-semibold">C</h1>
-
-  //     // </div>
-  // )
+  
 }
 
 export default Header;
