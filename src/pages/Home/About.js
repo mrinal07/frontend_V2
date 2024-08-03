@@ -27,8 +27,8 @@ function About() {
         </div>
       </div>
 
-      <div className="py-5 ">
-        <h1 className="text-white text-xl ">
+      <div className="py-5 mt-10">
+        <h1 className="text-tertiary text-xl ">
           Here are a few technologies I have extensive hands-on experience with.
         </h1>
 

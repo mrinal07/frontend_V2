@@ -46,7 +46,7 @@ function Experience() {
           ))}
         </div>
 
-        <div className="w-3/4">
+        <div className="w-3/4 sm:w-full">
           <div className="flex-col gap-5 ">
             <h1 className="text-secondary text-2xl ">
               {experiences[selectedItemIndex].title}
@@ -58,7 +58,7 @@ function Experience() {
               <b>Tech Stack</b>:
               {" [ "}
               {experiences[selectedItemIndex].skills.map((item, i) => (
-                <span key={i}>{item} {i} {
+                <span key={i}>{item} {
                   i !== experiences[selectedItemIndex].skills.length - 1
                     ? ", "
                     : ""
