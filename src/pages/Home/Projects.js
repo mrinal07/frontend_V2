@@ -54,7 +54,7 @@ function Projects() {
                 <i class="ri-link text-3xl text-white"></i>
               </a>
             </h1>
-            <h1 className="text-white text-xl ">
+            <h1 className="text-tertiary text-xl ">
               Tech Stack: {"[ "}
               {projects[selectedItemIndex].technologies.map((item, i) => (
                 <span key={i} className="text-tertiary">
