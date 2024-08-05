@@ -5,6 +5,7 @@ import { Form, Input, message } from "antd";
 function Index() {
   const [url, setUrl] = useState("");
   const [copiedUrl, setCopiedUrl] = useState("");
+  const BASE_URL = `${process.env.REACT_APP_BASE_URL}`;
 
   const handleChange = (event) => {
     setUrl(event.target.value); // Update the state when the input value changes
@@ -19,7 +20,7 @@ function Index() {
        // debugger;
       let val = url;
 
-      res = await axios.post("http://localhost:5000/add-url", {
+      res = await axios.post(BASE_URL+"add-url", {
         val,
       });
     //   console.log(res);
