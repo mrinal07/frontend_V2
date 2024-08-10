@@ -9,7 +9,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { HideLoading, setPortfolioData,showLoading,ReloadData } from "./redux/rootSlice";
 import Admin from "./pages/Admin/Index";
 import AdminLogin from "./pages/Admin/AdminLogin";
-import TinyUrl from "./pages/TinyUrl/Index"
 
 function App() {
   // const [showLoading, setShowLoading] = useState(false);
@@ -60,8 +59,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/admin" element={ <Admin/> }></Route>
-        <Route path="/admin-login" element={ <AdminLogin/> }></Route>
-        <Route path="/url" element={ <TinyUrl/> }></Route>
+        <Route path="/admin-login" element={ <AdminLogin/> }></Route>        
       </Routes>
     </BrowserRouter>
   );

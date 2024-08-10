@@ -10,7 +10,7 @@ function Experience() {
 
   function sample(){
     var a = experiences[selectedItemIndex].description
-    console.log(a)
+    // console.log(a)
   }
   sample()
   
