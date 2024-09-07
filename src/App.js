@@ -55,7 +55,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      {loading ? <Loader /> : null}
+      {/* {loading ? <Loader /> : null} */}
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/admin" element={ <Admin/> }></Route>
