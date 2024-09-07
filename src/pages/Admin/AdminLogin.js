@@ -15,12 +15,24 @@ function AdminLogin() {
   const dispatch = useDispatch();
   const login = async () => {
     try {
+      // remove exsiting token of users
+      localStorage.removeItem('token');
+      
+
       dispatch(showLoading());
       const response = await axios.post(BASE_URL+"api/portfolio/admin-login", user);
       dispatch(HideLoading());
+
       if (response.data.success) {
         message.success(response.data.message);
-        localStorage.setItem("token", JSON.stringify(response.data));
+
+        const now = new Date();        
+        const data = {
+          value: response.data,
+          expiry: now.getTime()
+        };
+
+        localStorage.setItem("token", JSON.stringify(data));
         window.location.href = "/admin";
       } else {
         message.error(response.data.message);

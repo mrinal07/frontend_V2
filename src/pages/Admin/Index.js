@@ -14,10 +14,14 @@ import AdminResume from "./AdminResume";
 function Admin() {
   const { portfolioData } = useSelector((state) => state.root);
 
-  useEffect(() => {
-    if (!localStorage.getItem("token")) {
+  useEffect(() => {    
+    const token = JSON.parse(localStorage.getItem("token"))     
+    const now = new Date();    
+    if ( ( token !== null && token.expiry === undefined ) || (!localStorage.getItem("token")) || ( now.getTime() - token.expiry >= 60000 ) ) {      
+      localStorage.removeItem('token');
       window.location.href = "/admin-login";
-    }
+    }    
+
   }, []);
 
   return (
