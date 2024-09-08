@@ -18,7 +18,7 @@ function Intro() {
       <h1 className="text-white mt-32">
         {portfolioData.intro[0].welcomeText || ""}
       </h1>
-      <h1 className="text-7xl sm:text-3xl text-white font-semibold">
+      <h1 className="text-7xl sm:text-3xl text-secondary font-semibold">
         {portfolioData.intro[0].firstName || ""}{" "}
         {portfolioData.intro[0].lastName || ""}
       </h1>

@@ -6,7 +6,7 @@ import Loader from "./components/Loader";
 import axios from "axios";
 
 import { useDispatch, useSelector } from "react-redux";
-import { HideLoading, setPortfolioData,showLoading,ReloadData } from "./redux/rootSlice";
+import { HideLoading, setPortfolioData,showLoading,ReloadData ,setNextPortfolioData} from "./redux/rootSlice";
 import Admin from "./pages/Admin/Index";
 import AdminLogin from "./pages/Admin/AdminLogin";
 
@@ -23,10 +23,19 @@ function App() {
       dispatch(showLoading(true));
 
       const response = await axios.get(BASE_URL+"api/portfolio/get-portfolio-data");
-
+      
+      const response2 = await axios.get(BASE_URL + "api/portfolio/get-next-portfolio-data");
+      
+      // console.log("App.js 1=>"+JSON.stringify(response.data));
+      // console.log("App.js 2=>"+JSON.stringify(response2.data));
+      
       dispatch(setPortfolioData(response.data));
-      dispatch(ReloadData(false));
       dispatch(HideLoading());
+      
+      dispatch(setNextPortfolioData(response2.data));
+
+      dispatch(ReloadData(false));
+      
       
       // console.log(22)
       // console.log(response.data.projects[1]);
@@ -49,13 +58,10 @@ function App() {
 
   }, [reloadData]);
 
-  // useEffect(() => {
-  //   // console.log("mrinal=>"+portfolioData);
-  // }, [portfolioData]);
 
   return (
     <BrowserRouter>
-      {/* {loading ? <Loader /> : null} */}
+      {loading ? <Loader /> : null}
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/admin" element={ <Admin/> }></Route>

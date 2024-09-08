@@ -5,8 +5,12 @@ import { useSelector } from "react-redux";
 function Experience() {
   const [selectedItemIndex, setSelectedItemIndex] = useState(0);
 
-  const { portfolioData } = useSelector((state) => state.root);
-  const { experiences } = portfolioData;
+  // const { portfolioData } = useSelector((state) => state.root);
+  const {  portfolioData,nextPortfolioData } = useSelector((state) => state.root);  
+  const { experiences } = nextPortfolioData;
+  // console.log("mrinal 1=>"+JSON.stringify(portfolioData))
+  // const { experiences } = nextPortfolioData;
+  // console.log("mrinal 2=>"+JSON.stringify(nextPortfolioData))
 
   function sample(){
     var a = experiences[selectedItemIndex].description
