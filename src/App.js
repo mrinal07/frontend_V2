@@ -16,7 +16,8 @@ function App() {
   const { loading, portfolioData , reloadData} = useSelector((state) => state.root);
   const dispatch = useDispatch();
 
-  const BASE_URL = `${process.env.REACT_APP_BASE_URL}`;
+  // const BASE_URL = `${process.env.REACT_APP_BASE_URL}`;
+  const BASE_URL = "http://35.224.132.64:5000/";
 
   const getPortfolioData = async () => {
     try {
