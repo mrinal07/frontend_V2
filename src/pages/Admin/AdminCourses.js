@@ -6,9 +6,9 @@ import axios from "axios";
 
 function AdminCourses() {
   // Reset the form fields
-  const { portfolioData } = useSelector((state) => state.root);
+  const { nextPortfolioData } = useSelector((state) => state.root);
   const dispatch = useDispatch();
-  const { courses } = portfolioData;
+  const { courses } = nextPortfolioData;
   const [showAddEditModal, setShowAddEditModal] = useState(false);
   const [selectedItemForEdit, setSelectedItemForEdit] = useState(null);
   const [type, setType] = useState("add");
