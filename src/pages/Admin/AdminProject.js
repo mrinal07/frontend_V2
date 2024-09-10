@@ -12,7 +12,7 @@ function AdminProject() {
   const [showAddEditModal, setShowAddEditModal] = useState(false);
   const [selectedItemForEdit, setSelectedItemForEdit] = useState(null);
   const [type, setType] = useState("add");
-  const BASE_URL = `${process.env.REACT_APP_BASE_URL2}`;
+  const BASE_URL = `${process.env.REACT_APP_BASE_URL}`;
 
   const onFinish = async (values) => {
     debugger;

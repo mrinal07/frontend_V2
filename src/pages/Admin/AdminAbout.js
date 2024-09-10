@@ -14,7 +14,7 @@ function AdminAbout() {
 
   const dispatch = useDispatch();
 
-  const BASE_URL = `${process.env.REACT_APP_BASE_URL2}`;
+  const BASE_URL = `${process.env.REACT_APP_BASE_URL}`;
 
   const onFinish = async (values) => {
 
