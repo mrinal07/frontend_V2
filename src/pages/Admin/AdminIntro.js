@@ -13,7 +13,7 @@ function AdminIntro() {
   const initialValues = portfolioData.intro[0];
 
   const dispatch = useDispatch();
-  const BASE_URL = `${process.env.REACT_APP_BASE_URL}`;
+  const BASE_URL = "https://backend-v2-660423634636.us-central1.run.app/"
 
   const onFinish = async (values) => {
     
