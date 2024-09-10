@@ -17,7 +17,7 @@ function Admin() {
   useEffect(() => {    
     const token = JSON.parse(localStorage.getItem("token"))     
     const now = new Date();    
-    if ( ( token !== null && token.expiry === undefined ) || (!localStorage.getItem("token")) || ( now.getTime() - token.expiry >= 60000 ) ) {      
+    if ( ( token !== null && token.expiry === undefined ) || (!localStorage.getItem("token")) || ( now.getTime() - token.expiry >= 840000 ) ) {      
       localStorage.removeItem('token');
       window.location.href = "/admin-login";
     }    
