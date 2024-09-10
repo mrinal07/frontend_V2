@@ -11,7 +11,7 @@ import { Menu } from "antd";
 import axios from "axios";
 
 
-const BASE_URL = `${process.env.REACT_APP_BASE_URL}`;
+const BASE_URL = `${process.env.REACT_APP_BASE_URL2}`;
 
 const handleFileDownload = async () => {
   try {

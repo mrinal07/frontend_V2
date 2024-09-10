@@ -18,7 +18,7 @@ function Contact() {
 
   const dispatch = useDispatch();
 
-  const BASE_URL = `${process.env.REACT_APP_BASE_URL}`;
+  const BASE_URL = `${process.env.REACT_APP_BASE_URL2}`;
   const [messageApi, contextHolder] = message.useMessage();
 
   const submit = async (event) => {

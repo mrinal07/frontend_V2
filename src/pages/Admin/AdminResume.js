@@ -6,7 +6,7 @@ import axios from "axios";
 
 function AdminResume() {
   //   const dispatch = useDispatch();
-  const BASE_URL = `${process.env.REACT_APP_BASE_URL}`;
+  const BASE_URL = `${process.env.REACT_APP_BASE_URL2}`;
 
   const [file, setFile] = useState(null);
   const [message, setMessage] = useState("");

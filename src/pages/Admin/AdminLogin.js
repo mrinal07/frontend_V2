@@ -10,7 +10,7 @@ function AdminLogin() {
     password: "",
   });
 
-  const BASE_URL = `${process.env.REACT_APP_BASE_URL}`;
+  const BASE_URL = `${process.env.REACT_APP_BASE_URL2}`;
 
   const dispatch = useDispatch();
   const login = async () => {

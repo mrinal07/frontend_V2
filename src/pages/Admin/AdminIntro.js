@@ -13,7 +13,7 @@ function AdminIntro() {
   const initialValues = portfolioData.intro[0];
 
   const dispatch = useDispatch();
-  const BASE_URL = `${process.env.REACT_APP_BASE_URL}`;
+  const BASE_URL = `${process.env.REACT_APP_BASE_URL2}`;
 
   const onFinish = async (values) => {
     
