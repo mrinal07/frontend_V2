@@ -60,9 +60,9 @@ function Admin() {
             <TabPane tab="Projects" key="4">
               <AdminProject />
             </TabPane>
-            <TabPane tab="Courses" key="5">
+            {/* <TabPane tab="Courses" key="5">
               <AdminCourses />
-            </TabPane>
+            </TabPane> */}
             <TabPane tab="Contact" key="6">
               <AdminContact />
             </TabPane>
