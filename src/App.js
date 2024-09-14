@@ -23,7 +23,7 @@ function App() {
     try {
       dispatch(showLoading(true));
 
-      console.log("App.js 1=>"+BASE_URL+"api/portfolio/get-portfolio-data");
+      // console.log("App.js 1=>"+BASE_URL+"api/portfolio/get-portfolio-data");
       const response = await axios.get(BASE_URL+"api/portfolio/get-portfolio-data");
 
       
