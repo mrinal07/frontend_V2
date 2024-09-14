@@ -16,14 +16,16 @@ function App() {
   const { loading, portfolioData , reloadData} = useSelector((state) => state.root);
   const dispatch = useDispatch();
 
-  const BASE_URL = "https://backend-v2-660423634636.us-central1.run.app/"
-  // const BASE_URL = "https://backend-v2-660423634636.us-central1.run.app/";
+  const BASE_URL = `${process.env.REACT_APP_BASE_URL}`
+  // const BASE_URL = `${process.env.REACT_APP_BASE_URL}`;
  
   const getPortfolioData = async () => {
     try {
       dispatch(showLoading(true));
 
+      console.log("App.js 1=>"+BASE_URL+"api/portfolio/get-portfolio-data");
       const response = await axios.get(BASE_URL+"api/portfolio/get-portfolio-data");
+
       
       const response2 = await axios.get(BASE_URL + "api/portfolio/get-next-portfolio-data");
       

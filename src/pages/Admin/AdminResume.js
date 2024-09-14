@@ -6,7 +6,7 @@ import axios from "axios";
 
 function AdminResume() {
   //   const dispatch = useDispatch();
-  const BASE_URL = "https://backend-v2-660423634636.us-central1.run.app/"
+  const BASE_URL = `${process.env.REACT_APP_BASE_URL}`;
 
   const [file, setFile] = useState(null);
   const [message, setMessage] = useState("");
@@ -48,13 +48,17 @@ function AdminResume() {
   return (
     <div>
       <form onSubmit={handleFileUpload}>
+      <span>PDF name must be : <b>Mrinal_Resume</b></span>
         <input
           type="file"
           accept="application/pdf"
           onChange={handleFileChange}
+          className="border-none mt-8 "
         />
         <br></br>
-        <button type="submit">Upload PDF</button>
+        <button className="bg-primary text-white px-5 py-2 mt-10 cursor-pointer  " type="submit">
+          Upload PDF
+        </button>
       </form>
       <br></br>
       <br></br>
