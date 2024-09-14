@@ -15,18 +15,20 @@ function Home() {
   const { portfolioData } = useSelector((state) => state.root);
   return (
     <div>
-      <Header></Header>      
-      {portfolioData && ( 
-        <div className="bg-primary px-40 sm:px-5">
-          <Intro></Intro>
-          <About></About>
-          <Services />
-          <Experience />
-          <Projects />
-          {/* <Courses /> */}
-          <Contact />
-          <Footer />
-          <LeftSider />
+      {portfolioData && (
+        <div>
+          <Header></Header>
+          <div className="bg-primary px-40 sm:px-5">
+            <Intro></Intro>
+            <About></About>
+            <Services />
+            <Experience />
+            <Projects />
+            {/* <Courses /> */}
+            <Contact />
+            <Footer />
+            <LeftSider />
+          </div>
         </div>
       )}
     </div>
