@@ -1,3 +1,5 @@
+This repo. is currently used as a frontend for DevMrinal.in
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
